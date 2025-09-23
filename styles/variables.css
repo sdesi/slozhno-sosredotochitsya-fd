@@ -3,11 +3,16 @@
   и их переопределение под различные устройства
   --bg-image: url(../images/cover-image-light.png)
 */
-:root {
-  --bg-image: url(../images/cover-image-light.png);
-  --title-decor-color: #FF8DCB;
-  --title: #FFC2E6;
-  --accent-color: #FF8DCB;
-}
+  :root {
+    --bg-image: url(../images/cover-image-light.png);
+    --title-decor-color: #FF8DCB;
+    --title: #FFC2E6;
+    --accent-color: #FF8DCB;
+    --header-h2-color: #353430;
+    --main-h2-color: #353430;
+    --main-p-color: #353430;
+    --header-border-color: #353430;
+    --header-border-hover-color: rgba(50, 49, 45, 0.4);
+  }
 
 /* background-image: url(../images/cover-image-light.png) */

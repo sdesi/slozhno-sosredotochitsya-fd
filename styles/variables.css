@@ -5,12 +5,13 @@
 */
   :root {
     --bg-image: url(../images/cover-image-light.png);
+    --bg-color: #fff1f7;
     --title-decor-color: #FF8DCB;
     --title: #FFC2E6;
     --accent-color: #FF8DCB;
-    --header-h2-color: #353430;
-    --main-h2-color: #353430;
-    --main-p-color: #353430;
+    --main-text-color: #353430;
+    --main-headers-color: #353430;
+    --decorated-text-color: #353430;
     --header-border-color: #353430;
     --header-border-hover-color: rgba(50, 49, 45, 0.4);
   }

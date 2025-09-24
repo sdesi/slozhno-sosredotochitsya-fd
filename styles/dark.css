@@ -10,35 +10,35 @@
     чем стили в медиазапросе предпочтений пользователя
   */
     --bg-image: url(../images/cover-image-dark.png);
+    --bg-color: #000028;
     --title-decor-color: #FF0070;
     --title: #DB00FF;
     --accent-color: #FF0070;
-    --header-color: #FF0070;
+    --main-text-color: #F1B2CE;
+    --main-headers-color: #FF0070;
     --decorated-text-color: #000028;
-    --main-p-color: #F1B2CE;
     --header-border-color: #FF0070;
     --header-border-hover-color: rgba(255, 0, 112, 0.4);
 }
 
 .theme-dark .header__subtext {
   display: flex;
-  gap: 10px;
-  align-items: center;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-image: url(../images/cover-image-dark.png);
+    --bg-color: #000028;
     --title-decor-color: #FF0070;
     --title: #DB00FF;
     --accent-color: #FF0070;
-    --header-color: #FF0070;
+    --main-text-color: #F1B2CE;
+    --main-headers-color: #FF0070;
     --decorated-text-color: #000028;
-    --main-p-color: #F1B2CE;
     --header-border-color: #FF0070;
     --header-border-hover-color: rgba(255, 0, 112, 0.4);
 }
-  .header__subtext {
-  display: block;
+  .theme-auto .header__subtext {
+  display: flex;
 }
 }

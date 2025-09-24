@@ -4,6 +4,7 @@
 .page {
   display: grid;
   gap: 40px;
+  background-color: var(--bg-color);
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
@@ -35,12 +36,14 @@
   display: none;
   position: absolute;
   color: var(--header-border-color);
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: IBM Plex Mono, monospace;
   font-weight: normal;
   font-size: 18px;
   text-transform: uppercase;
   top: 12px;
   right: 19px;
+  gap: 10px;
+  align-items: center;
 }
 
 .header__subtext::after {
@@ -53,8 +56,7 @@
   box-shadow: 0px 0px 4px 2px var(--header-border-color);
 }
 
-.header::before,
-.footer::before {
+.corners::before {
   content: "";
   width: 25px;
   height: 25px;
@@ -65,8 +67,7 @@
   border-right: 1px solid var(--header-border-color);
 }
 
-.header::after,
-.footer::after {
+.corners::after {
   content: "";
   width: 25px;
   height: 25px;
@@ -94,7 +95,7 @@
   border-radius: 0;
   width: 70px;
   padding: 1px 0 2px 0;
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: IBM Plex Mono, monospace;
   font-weight: normal;
   font-size: 18px;
   text-transform: lowercase;
@@ -106,6 +107,7 @@
 .header__theme-menu-button_active {
   border: var(--header-border-color) 1px solid;
   cursor: default;
+  pointer-events: none;
 }
 
 .header__theme-menu-button:hover {
@@ -118,14 +120,14 @@
 
 .header__theme-menu-button:focus-visible {
   border: transparent 1px solid;
-  border-bottom: var(--header-border-color) 1px solid;
+  border-bottom: currentColor 1px solid;
   outline: none;
 }
 
 .header__title,
 .footer__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: IBM Plex Mono, monospace;
   font-weight: 700;
   line-height: 83%;
   color: var(--title);
@@ -134,6 +136,7 @@
 
 .header__text-block {
   display: grid;
+  row-gap: 55px;
 }
 
 .main {
@@ -160,25 +163,25 @@
 }
 
 .text {
-  font-family: IBM Plex Mono, sans-serif;
+  font-family: IBM Plex Mono, monospace;
   font-weight: normal;
   font-size: 18px;
   line-height: 130%;
-  color: var(--main-p-color);
+  color: var(--main-text-color);
 }
 
 .bold {
   font-weight: 700;
-  color: var(--main-bold-color);
 }
 
-.text.title-decor {
+h2.bold.text {
+  color: var(--main-headers-color);
+}
+
+.text.title-decor,
+.text.bold.title-decor {
   background-color: var(--title-decor-color);
   color: var(--decorated-text-color);
-}
-
-h2.text {
-  color: var(--header-color);
 }
 
 .link {
@@ -188,7 +191,7 @@ h2.text {
 }
 
 .link:hover {
-  text-decoration: underline;
+  border-bottom: currentColor 1px solid;
 }
 
 .link:focus {
@@ -196,7 +199,7 @@ h2.text {
 }
 
 .link:focus-visible {
-  border: 1px var(--main-p-color) solid;
+  border: 1px var(--main-text-color) solid;
 }
 
 .images-section,
@@ -240,15 +243,13 @@ h2.text {
     font-size: 120px;
   }
 
-  .header::before,
-  .footer::before {
+  .corners::before {
     top: 20px;
     right: 20px;
 
   }
 
-  .header::after,
-  .footer::after {
+  .corners::after {
     left: 20px;
     bottom: 20px;
   }
@@ -283,25 +284,27 @@ h2.text {
 
   .section {
     gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    /*grid-template-rows: min-content min-content; */
   }
 
   .cards {
     grid-area: cards;
   }
 
-  .why-section,
-  .how-section {
-    grid-template-columns: 1fr 2fr;
+  .why-how-section {
     grid-template-areas:
       "header cards";
   }
 
   .what-section {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: min-content min-content;
     grid-template-areas:
       "header ."
       "cards cards";
+  }
+
+  .images-section {
+    grid-template-columns: 1fr;
   }
 
   .images {
@@ -339,6 +342,11 @@ h2.text {
     grid-row-gap: 114px;
   }
 
+  .header__title,
+  .footer__title {
+    font-size: 157px;
+  }
+
   .header__theme-menu {
     margin: 0 auto;
   }
@@ -347,19 +355,24 @@ h2.text {
     flex-direction: row;
   }
 
-  .why-section,
-  .how-section {
+  .section {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .why-how-section {
     grid-template-areas:
       "header cards cards";
   }
 
   .what-section {
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, min-content);
     grid-template-areas:
       "header . ."
       "cards cards cards";
+  }
+
+  .images-section {
+    grid-template-columns: 1fr;
   }
 
   .what-section .cards {

@@ -150,6 +150,12 @@
   gap: 20px;
 }
 
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
@@ -288,7 +294,7 @@ h2.bold.text {
     /*grid-template-rows: min-content min-content; */
   }
 
-  .cards {
+  .cards, .subsection {
     grid-area: cards;
   }
 
